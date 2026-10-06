@@ -1,0 +1,506 @@
+/* Арнайы стильдер және анимациялар */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+code, pre {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Тегіс ашылу анимациясы */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* =========================================================
+   KaTeX формулаларының көрнекілігі мен өлшемін арттыру
+   ========================================================= */
+
+/* Барлық KaTeX формулалары: қанық, анық көрінетін алтын-сары реңк және үлкейтілген қаріп */
+.katex {
+    font-size: 1.18em !important;
+    color: #facc15 !important; /* Жарқын алтын-сары (Amber-Gold) — қараңғы фонда өте анық жарқырайды */
+    font-weight: 600 !important;
+    letter-spacing: 0.015em;
+    text-shadow: 0 0 10px rgba(250, 204, 21, 0.25);
+}
+
+/* Мәтін ішіндегі (inline) формулаларға көрнекі жұмсақ бөлектеуші жиектеме */
+:not(.katex-display) > .katex {
+    display: inline-block;
+    padding: 0.08em 0.35em !important;
+    margin: 0 0.12em;
+    background: rgba(250, 204, 21, 0.12) !important;
+    border: 1px solid rgba(250, 204, 21, 0.3) !important;
+    border-radius: 6px !important;
+    vertical-align: middle;
+}
+
+/* Дисплейлік (бөлек жолдағы) формулалар: кең, көрнекі, акцентті карточка */
+.katex-display {
+    margin: 1.2em 0 !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 20px !important;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9)) !important;
+    border: 1px solid rgba(250, 204, 21, 0.35) !important;
+    border-left: 4px solid #facc15 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.katex-display > .katex {
+    font-size: 1.35em !important;
+    color: #fde047 !important;
+    font-weight: 700 !important;
+}
+
+/* Формула элементтері мен таңбалары (бөлшек, түбір, операторлар, функциялар) бірдей алтын түсте анық көрінсін */
+.katex .mord, .katex .mathnormal, .katex .mbin, .katex .mrel, .katex .mopen, .katex .mclose, .katex .mpunct,
+.katex .mop, .katex .mathrm, .katex .mathbf, .katex .text, .katex .delimsizing, .katex .inner {
+    color: inherit !important;
+}
+
+.katex .frac-line, .katex .sqrt-line {
+    border-bottom-color: #facc15 !important;
+}
+
+.katex .sqrt svg path {
+    fill: #facc15 !important;
+    stroke: #facc15 !important;
+}
+
+/* =========================================================
+   Тақырып түсіндірмелері мен блоктық карточкалар дизайны (Dark UI)
+   Барлық ақ фондағы мәтіндер мен көрінбейтін шрифттерді толық түзету
+   ========================================================= */
+#topic-theory-content {
+    color: #cbd5e1;
+    font-size: 0.975rem;
+    line-height: 1.75;
+}
+
+#topic-theory-content p {
+    color: #e2e8f0;
+}
+
+#topic-theory-content strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+#topic-theory-content em {
+    color: #38bdf8;
+    font-style: normal;
+    font-weight: 600;
+}
+
+#topic-theory-content ul {
+    color: #cbd5e1;
+}
+
+#topic-theory-content li {
+    color: #e2e8f0;
+}
+/* Кез келген ақ түсті ішкі блоктарды (bg-white) қараңғы, кристалды әрі контрастты ету */
+#topic-theory-content .bg-white,
+.bg-white {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: rgba(148, 163, 184, 0.3) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Әмбебап ереже: #topic-theory-content ішіндегі барлық карточкалар мен блоктар қараңғы фонда анық болсын */
+#topic-theory-content div[class*="rounded"] {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+}
+
+/* 1. Көк түсті блоктар */
+#topic-theory-content [class*="bg-blue"] {
+    background-color: rgba(30, 58, 138, 0.35) !important;
+    border-color: rgba(96, 165, 250, 0.45) !important;
+}
+#topic-theory-content [class*="text-blue"] {
+    color: #93c5fd !important;
+}
+
+/* 2. Изумруд/жасыл блоктар */
+#topic-theory-content [class*="bg-emerald"] {
+    background-color: rgba(6, 78, 59, 0.35) !important;
+    border-color: rgba(52, 211, 153, 0.45) !important;
+}
+#topic-theory-content [class*="text-emerald"] {
+    color: #6ee7b7 !important;
+}
+
+/* 3. Индиго блоктар */
+#topic-theory-content [class*="bg-indigo"] {
+    background-color: rgba(49, 46, 129, 0.35) !important;
+    border-color: rgba(129, 140, 248, 0.45) !important;
+}
+#topic-theory-content [class*="text-indigo"] {
+    color: #a5b4fc !important;
+}
+
+/* 4. Сары/янтарь блоктар */
+#topic-theory-content [class*="bg-amber"] {
+    background-color: rgba(120, 53, 15, 0.35) !important;
+    border-color: rgba(251, 191, 36, 0.45) !important;
+}
+#topic-theory-content [class*="text-amber"] {
+    color: #fde047 !important;
+}
+
+/* 5. Күлгін/фиолет блоктар */
+#topic-theory-content [class*="bg-purple"] {
+    background-color: rgba(88, 28, 135, 0.35) !important;
+    border-color: rgba(192, 132, 252, 0.45) !important;
+}
+#topic-theory-content [class*="text-purple"] {
+    color: #d8b4fe !important;
+}
+
+#topic-theory-content [class*="bg-violet"] {
+    background-color: rgba(76, 29, 149, 0.35) !important;
+    border-color: rgba(167, 139, 250, 0.45) !important;
+}
+#topic-theory-content [class*="text-violet"] {
+    color: #c4b5fd !important;
+}
+
+/* 6. Қызғылт/раушан/қызыл блоктар */
+#topic-theory-content [class*="bg-rose"] {
+    background-color: rgba(136, 19, 55, 0.35) !important;
+    border-color: rgba(251, 113, 133, 0.45) !important;
+}
+#topic-theory-content [class*="text-rose"] {
+    color: #fda4af !important;
+}
+
+#topic-theory-content [class*="bg-red"] {
+    background-color: rgba(127, 29, 29, 0.35) !important;
+    border-color: rgba(248, 113, 113, 0.45) !important;
+}
+#topic-theory-content [class*="text-red"] {
+    color: #fca5a5 !important;
+}
+
+#topic-theory-content [class*="bg-pink"] {
+    background-color: rgba(131, 24, 67, 0.35) !important;
+    border-color: rgba(244, 114, 182, 0.45) !important;
+}
+#topic-theory-content [class*="text-pink"] {
+    color: #f472b6 !important;
+}
+
+/* 7. Теал/циан блоктар */
+#topic-theory-content [class*="bg-teal"] {
+    background-color: rgba(19, 78, 74, 0.35) !important;
+    border-color: rgba(45, 212, 191, 0.45) !important;
+}
+#topic-theory-content [class*="text-teal"] {
+    color: #5eead4 !important;
+}
+
+#topic-theory-content [class*="bg-cyan"] {
+    background-color: rgba(22, 78, 99, 0.35) !important;
+    border-color: rgba(34, 211, 238, 0.45) !important;
+}
+#topic-theory-content [class*="text-cyan"] {
+    color: #67e8f9 !important;
+}
+
+/* 8. Сұр блоктар */
+#topic-theory-content [class*="bg-slate"] {
+    background-color: rgba(30, 41, 59, 0.7) !important;
+    border-color: rgba(100, 116, 139, 0.45) !important;
+}
+
+/* 9. Жалпы көмекші және түсіндірме мәтіндер */
+#topic-theory-content [class*="text-slate"] {
+    color: #cbd5e1 !important;
+}
+
+#topic-theory-content p,
+#topic-theory-content li,
+#topic-theory-content span:not([class*="text-"]):not(.katex *) {
+    color: #e2e8f0 !important;
+}
+
+#topic-theory-content strong {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* =========================================================
+   КӨЗІ НАШАР КӨРЕТІНДЕРГЕ АРНАЛҒАН РЕЖИМ (ACCESSIBILITY SCALING)
+   ========================================================= */
+html.accessibility-large {
+    font-size: 118% !important;
+}
+
+html.accessibility-large body {
+    line-height: 1.7 !important;
+}
+
+html.accessibility-large .katex {
+    font-size: 1.28em !important;
+}
+
+html.accessibility-large #topic-theory-content {
+    font-size: 1.12rem !important;
+    line-height: 1.85 !important;
+}
+
+html.accessibility-large button,
+html.accessibility-large input,
+html.accessibility-large select {
+    font-size: 1.02rem !important;
+}
+
+html.accessibility-xlarge {
+    font-size: 135% !important;
+}
+
+html.accessibility-xlarge body {
+    line-height: 1.8 !important;
+}
+
+html.accessibility-xlarge .katex {
+    font-size: 1.38em !important;
+}
+
+html.accessibility-xlarge #topic-theory-content {
+    font-size: 1.25rem !important;
+    line-height: 2 !important;
+}
+
+html.accessibility-xlarge button,
+html.accessibility-xlarge input,
+html.accessibility-xlarge select {
+    font-size: 1.12rem !important;
+}
+
+/* Print (Басып шығару) режимі — Ресми педагогикалық ведомость пішімі */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+    }
+    #geo-ai-root, header, nav, #anim-controls-panel, button, input {
+        display: none !important;
+    }
+    main {
+        display: none !important;
+    }
+    #diagnostics-modal {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+    #diagnostics-modal > div {
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+    }
+    #diagnostics-modal .bg-slate-900,
+    #diagnostics-modal .bg-slate-800\/80,
+    #diagnostics-modal .bg-slate-800 {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+    }
+    #diagnostics-modal table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        border: 1.5px solid #0f172a !important;
+    }
+    #diagnostics-modal th, #diagnostics-modal td {
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+        padding: 6px 10px !important;
+        font-size: 10pt !important;
+    }
+    #diagnostics-modal thead {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+        font-weight: bold !important;
+    }
+    .text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400 {
+        color: #000000 !important;
+    }
+    .katex {
+        color: #000000 !important;
+        background: transparent !important;
+        border: none !important;
+        text-shadow: none !important;
+    }
+    .katex-display {
+        background: transparent !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+}
+
+/* =========================================================
+   ЖОҒАРЫ КОНТРАСТТЫ РЕЖИМ (HIGH CONTRAST / WCAG AAA)
+   ========================================================= */
+html.high-contrast,
+html.high-contrast body {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+html.high-contrast * {
+    border-color: #ffff00 !important;
+}
+
+html.high-contrast header,
+html.high-contrast footer,
+html.high-contrast main,
+html.high-contrast section,
+html.high-contrast div,
+html.high-contrast [class*="bg-"] {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+html.high-contrast p,
+html.high-contrast span,
+html.high-contrast li,
+html.high-contrast h1,
+html.high-contrast h2,
+html.high-contrast h3,
+html.high-contrast h4,
+html.high-contrast strong {
+    color: #ffff00 !important;
+}
+
+html.high-contrast button {
+    background-color: #000000 !important;
+    color: #00ffff !important;
+    border: 2px solid #00ffff !important;
+    font-weight: 700 !important;
+}
+
+html.high-contrast button:hover,
+html.high-contrast button:focus {
+    background-color: #00ffff !important;
+    color: #000000 !important;
+}
+
+html.high-contrast .katex,
+html.high-contrast .katex * {
+    color: #ffff00 !important;
+    text-shadow: none !important;
+}
+
+html.high-contrast .katex-display {
+    background: #000000 !important;
+    border: 2px solid #ffff00 !important;
+}
+
+html.high-contrast canvas {
+    border: 2px solid #00ffff !important;
+    filter: contrast(130%);
+}
+
+/* =========================================================
+   ДИСЛЕКСИЯ РЕЖИМІ (DYSLEXIA FRIENDLY)
+   ========================================================= */
+html.dyslexia-mode,
+html.dyslexia-mode body,
+html.dyslexia-mode p,
+html.dyslexia-mode span,
+html.dyslexia-mode h1,
+html.dyslexia-mode h2,
+html.dyslexia-mode h3,
+html.dyslexia-mode h4,
+html.dyslexia-mode li,
+html.dyslexia-mode button,
+html.dyslexia-mode div {
+    font-family: 'Comic Sans MS', 'Lexend', 'OpenDyslexic', 'Trebuchet MS', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    word-spacing: 0.12em !important;
+    line-height: 1.85 !important;
+}
+
+html.dyslexia-mode p {
+    margin-bottom: 1.25em !important;
+}
+
+/* =========================================================
+   МОТОРИКА: ҮЛКЕЙТІЛГЕН СЕНСОРЛЫҚ БАТЫРМАЛАР (BIG TARGETS)
+   ========================================================= */
+html.big-targets-mode button,
+html.big-targets-mode a,
+html.big-targets-mode input,
+html.big-targets-mode select {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    font-size: 1.05rem !important;
+    margin: 4px !important;
+}
+
+*:focus-visible {
+    outline: 3px solid #38bdf8 !important;
+    outline-offset: 3px !important;
+}
+
+/* =========================================================
+   ОҚУ СЫЗҒЫШЫ (READING RULER / FOCUS STRIP)
+   ========================================================= */
+.reading-ruler-overlay {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 52px;
+    pointer-events: none;
+    z-index: 9998;
+    background: rgba(250, 204, 21, 0.12);
+    border-top: 2px solid rgba(250, 204, 21, 0.7);
+    border-bottom: 2px solid rgba(250, 204, 21, 0.7);
+    box-shadow: 0 0 0 9999px rgba(10, 15, 30, 0.48);
+    transition: top 0.04s ease-out;
+}
+
